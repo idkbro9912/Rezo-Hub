@@ -1,0 +1,70 @@
+-- Key System with Wind UI aesthetics
+-- Verification set to: Rezoscripts
+
+local CorrectKey = "rezoscripts"
+local DiscordLink = "https://discord.gg/hDszXzHncj"
+
+-- Function to display the sleek UI
+local function createWindUI()
+    local ScreenGui = Instance.new("ScreenGui", game.CoreGui)
+    
+    local MainFrame = Instance.new("Frame", ScreenGui)
+    MainFrame.Size = UDim2.new(0, 320, 0, 220)
+    MainFrame.Position = UDim2.new(0.5, -160, 0.5, -110)
+    MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30) -- Dark theme
+    MainFrame.BorderSizePixel = 0
+    
+    -- Aesthetic gradient or border effect
+    local Stroke = Instance.new("UIStroke", MainFrame)
+    Stroke.Color = Color3.fromRGB(100, 100, 255)
+    Stroke.Thickness = 2
+
+    local Title = Instance.new("TextLabel", MainFrame)
+    Title.Size = UDim2.new(1, 0, 0, 40)
+    Title.Text = "Authentication"
+    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Title.BackgroundTransparency = 1
+    Title.Font = Enum.Font.GothamBold
+
+    local TextBox = Instance.new("TextBox", MainFrame)
+    TextBox.Size = UDim2.new(0, 280, 0, 40)
+    TextBox.Position = UDim2.new(0, 20, 0, 60)
+    TextBox.PlaceholderText = "Enter key here..."
+    TextBox.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
+    TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextBox.BorderSizePixel = 0
+
+    local SubmitBtn = Instance.new("TextButton", MainFrame)
+    SubmitBtn.Size = UDim2.new(0, 280, 0, 40)
+    SubmitBtn.Position = UDim2.new(0, 20, 0, 110)
+    SubmitBtn.Text = "Login"
+    SubmitBtn.BackgroundColor3 = Color3.fromRGB(80, 80, 200)
+    SubmitBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+    local LinkBtn = Instance.new("TextButton", MainFrame)
+    LinkBtn.Size = UDim2.new(0, 280, 0, 30)
+    LinkBtn.Position = UDim2.new(0, 20, 0, 160)
+    LinkBtn.Text = "Copy Discord Link"
+    LinkBtn.BackgroundTransparency = 0.5
+    LinkBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+
+    -- Copying link to clipboard
+    LinkBtn.MouseButton1Click:Connect(function()
+        setclipboard(DiscordLink)
+    end)
+
+    -- Verifying key logic
+    SubmitBtn.MouseButton1Click:Connect(function()
+        if TextBox.Text == CorrectKey then
+            ScreenGui:Destroy()
+            -- Loading main hub script
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/idkbro9912/Rezo-Hub/refs/heads/main/rezo-script-obf.lua"))()
+        else
+            TextBox.Text = "Access Denied"
+            task.wait(1)
+            TextBox.Text = ""
+        end
+    end)
+end
+
+createWindUI()
