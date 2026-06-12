@@ -1,5 +1,6 @@
 local u1 = loadstring(game:HttpGet('https://raw.githubusercontent.com/xenlua/Xens/refs/heads/main/ui/Avantrix.lua'))()
 
+
 local function v3()
     if task.wait() then
         game:GetService('ScriptContext'):SetTimeout(math.huge)
@@ -2296,7 +2297,4 @@ u10.Performance:AddButton({
         })
     end,
 })
-v2:SetLibrary(u1)
-v2:SetIgnoreIndexes({})
-v2:SetFolder('Rezo Hub/99NF')
-v2:InitSaveSystem(v9.Settings)
+
