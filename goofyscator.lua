@@ -1,5 +1,4 @@
 local u1 = loadstring(game:HttpGet('https://raw.githubusercontent.com/xenlua/Xens/refs/heads/main/ui/Avantrix.lua'))()
-local v2 = loadstring(game:HttpGet('https://raw.githubusercontent.com/DRK070/Flags/refs/heads/main/Flags.txt'))()
 
 local function v3()
     if task.wait() then
