@@ -41,7 +41,7 @@ local Window = WindUI:CreateWindow({
     Theme = "Dark",
 })
 
--- Tabs
+-- Main Tabs (no nesting)
 local v9 = {
     Welcome   = Window:Tab({ Title = "Information", Icon = "info" }),
     Main      = Window:Tab({ Title = "Main",        Icon = "sword" }),
@@ -54,20 +54,20 @@ local v9 = {
 
 v9.Welcome:Select()
 
--- Sections
+-- Sections inside Tabs (using :Section() instead of :Tab())
 local u10 = {
-    Welcome         = v9.Welcome:Tab({ Title = "Welcome" }),
-    MainFarm        = v9.Main:Tab({ Title = "Farm Controls" }),
-    AutoEat         = v9.Main:Tab({ Title = "Auto Eat System" }),
-    TeleportControls= v9.Teleport:Tab({ Title = "Teleport Controls" }),
-    BringItems      = v9.Bring:Tab({ Title = "Item Collection" }),
-    AutoDetectItems = v9.Bring:Tab({ Title = "All Items" }),
-    ScrapItems      = v9.Bring:Tab({ Title = "Scrap Items" }),
-    FuelItems       = v9.Bring:Tab({ Title = "Fuel Items" }),
-    ChestFinder     = v9.Chest:Tab({ Title = "Chest Detection" }),
-    HitboxControls  = v9.Hitbox:Tab({ Title = "Hitbox Expansion" }),
-    MiscFeatures    = v9.Misc:Tab({ Title = "Miscellaneous" }),
-    Performance     = v9.Misc:Tab({ Title = "Performance" }),
+    Welcome         = v9.Welcome:Section({ Title = "Welcome" }),
+    MainFarm        = v9.Main:Section({ Title = "Farm Controls" }),
+    AutoEat         = v9.Main:Section({ Title = "Auto Eat System" }),
+    TeleportControls= v9.Teleport:Section({ Title = "Teleport Controls" }),
+    BringItems      = v9.Bring:Section({ Title = "Item Collection" }),
+    AutoDetectItems = v9.Bring:Section({ Title = "All Items" }),
+    ScrapItems      = v9.Bring:Section({ Title = "Scrap Items" }),
+    FuelItems       = v9.Bring:Section({ Title = "Fuel Items" }),
+    ChestFinder     = v9.Chest:Section({ Title = "Chest Detection" }),
+    HitboxControls  = v9.Hitbox:Section({ Title = "Hitbox Expansion" }),
+    MiscFeatures    = v9.Misc:Section({ Title = "Miscellaneous" }),
+    Performance     = v9.Misc:Section({ Title = "Performance" }),
 }
 
 -- Welcome paragraph
